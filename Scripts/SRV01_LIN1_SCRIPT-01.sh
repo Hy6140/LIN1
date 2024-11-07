@@ -218,10 +218,6 @@ EOF
 
 # Configure LDAP by creating the different necessary ldif files and executing them + sets the passwords for each account
 function ConfigureLdap {
-    echo -e "\e[33mLDAP file: Setting base and uri\e[0m"
-    sed -i 's/#BASE\s*dc=example,dc=com/BASE dc=lin1,dc=local/g' $File_Ldap
-    sed -i 's|#URI\s*ldap://ldap\.example\.com\s*ldap://ldap-provider\.example\.com:666|URI ldap://SRV-LIN1-01.lin1.local|g' $File_Ldap
-    
     echo -e "\e[33mLDAP Organizational unit file: Creating Organizational unit file\e[0m"
     cat <<EOF >$File_Ldap_Ou
 dn: $Ldap_Users_Controller
